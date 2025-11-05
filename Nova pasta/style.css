@@ -1,0 +1,91 @@
+:root{
+  --bg: #0f1724;
+  --panel: #0b1220;
+  --accent: #00d1b2;
+  --text: #e6eef6;
+  --muted: #9fb3c8;
+  --btn: #1b2a38;
+  --btn-op: #ff9f43;
+  --radius: 16px;
+  --gap: 12px;
+  --font: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html,body { height:100%; margin:0; background: linear-gradient(180deg,#071226 0%, #0d2130 100%); font-family:var(--font); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+
+.calculator{
+  width: 360px;
+  max-width: calc(100% - 32px);
+  margin: 48px auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 18px;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+.display{
+  background: rgba(0,0,0,0.16);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+  min-height: 84px;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.history{
+  width:100%;
+  text-align:right;
+  font-size: 13px;
+  color: var(--muted);
+  height:18px;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  margin-bottom:6px;
+}
+
+.output{
+  width:100%;
+  border: none;
+  background: transparent;
+  text-align: right;
+  font-size: 36px;
+  color: var(--text);
+  outline: none;
+  font-weight: 600;
+}
+
+.keys{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+}
+
+.btn{
+  background: var(--btn);
+  border: none;
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 18px;
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(2,6,23,0.5);
+  transition: transform .08s ease, box-shadow .08s ease;
+  user-select: none;
+}
+
+.btn:active { transform: translateY(2px); }
+.btn-ac { background: #ff6b6b; color: white; }
+.btn-op { background: linear-gradient(180deg,#ffb86b,#ff9f43); color:#081017; font-weight:700; }
+.btn-eq { grid-column: span 1; background: linear-gradient(180deg,#2dd4bf,#00d1b2); color:#021114; font-weight:700; }
+.btn-zero { grid-column: span 2; text-align: left; padding-left: 36px; }
+
+@media (max-width:420px){
+  .calculator{ width: 320px; padding:14px; }
+  .output{ font-size: 32px; }
+  .btn{ padding:14px; font-size:16px; }
+}
